@@ -25,19 +25,20 @@ else
   ADDITIONAL_OVERRIDE=$(echo "
   {
     \"runs\": {
-      \"ci\": \"${CI:+"true"}\",
-      \"runner_service\": \"$RUNNER_SERVICE\",
-      \"runner_name\": \"$RUNNER_NAME\",
-      \"runner_os\": \"$RUNNER_OS\",
-      \"runner_arch\": \"$RUNNER_ARCH\",
-      \"trigger\": \"$TRIGGER\",
-      \"job_id\": \"$JOB_ID\",
-      \"ref_name\": \"$REF_NAME\",
-      \"ref_type\": \"$REF_TYPE\",
-      \"sha\": \"$SHA\",
-      \"repo\": \"$REPO\",
-      \"run_id\": \"$RUN_ID\",
-      \"run_attempt\": \"$RUN_ATTEMPT\"
+      \"ci\": {
+        \"runner_service\": \"$RUNNER_SERVICE\",
+        \"runner_name\": \"$RUNNER_NAME\",
+        \"runner_os\": \"$RUNNER_OS\",
+        \"runner_arch\": \"$RUNNER_ARCH\",
+        \"trigger\": \"$TRIGGER\",
+        \"job_id\": \"$JOB_ID\",
+        \"ref_name\": \"$REF_NAME\",
+        \"ref_type\": \"$REF_TYPE\",
+        \"sha\": \"$SHA\",
+        \"repo\": \"$REPO\",
+        \"run_id\": \"$RUN_ID\",
+        \"run_attempt\": \"$RUN_ATTEMPT\"
+      }
     }
   }" | tr -d '\n')
 fi
