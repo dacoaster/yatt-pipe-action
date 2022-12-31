@@ -11,6 +11,7 @@ Supported variables are:
 - data_types
 - verbose
 - no_git
+- no_ci_data
 
 Here is the simplest example of how to configure/use this action: 
 ```
