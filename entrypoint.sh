@@ -43,6 +43,14 @@ else
 fi
 if [ "$ADDITIONAL_OVERRIDE" != "$INPUT_OVERRIDE" ]; then
   COMBINED_OVERRIDE=$(jq --indent 0 -s '.[0] * .[1]' <(echo "$ADDITIONAL_OVERRIDE") <(echo "${INPUT_OVERRIDE:-$EMPTY_OVERRIDE}"))
+  COMBINED_OVERRIDE=$(LC_ALL=C awk -v q="'" '
+    BEGIN{
+      for (i=1; i<ARGC; i++) {
+        gsub(q, q "\\" q q, ARGV[i])
+        printf "%s ", q ARGV[i] q
+      }
+      print ""
+    }' "$COMBINED_OVERRIDE")
 fi
 
 echo "Running yatt-pipe: node /yatt-pipe/node_modules/yatt-pipe/index.js \
@@ -50,7 +58,7 @@ echo "Running yatt-pipe: node /yatt-pipe/node_modules/yatt-pipe/index.js \
  ${INPUT_TARGET:+--target $INPUT_TARGET} \
  ${INPUT_CREDENTIALS:+--credentials $INPUT_CREDENTIALS} \
  ${INPUT_IGNORE:+--ignore $INPUT_IGNORE} \
- ${COMBINED_OVERRIDE:+--overrides ${COMBINED_OVERRIDE@Q}} \
+ ${COMBINED_OVERRIDE:+--overrides $COMBINED_OVERRIDE} \
  ${INPUT_DATA_TYPES:+--data-types $INPUT_DATA_TYPES} \
  ${INPUT_NO_GIT:+--no-git} \
  ${INPUT_VERBOSE:+--verbose}"
@@ -60,7 +68,7 @@ node /yatt-pipe/node_modules/yatt-pipe/index.js \
  ${INPUT_TARGET:+--target $INPUT_TARGET} \
  ${INPUT_CREDENTIALS:+--credentials $INPUT_CREDENTIALS} \
  ${INPUT_IGNORE:+--ignore $INPUT_IGNORE} \
- ${COMBINED_OVERRIDE:+--overrides ${COMBINED_OVERRIDE@Q}} \
+ ${COMBINED_OVERRIDE:+--overrides $COMBINED_OVERRIDE} \
  ${INPUT_DATA_TYPES:+--data-types $INPUT_DATA_TYPES} \
  ${INPUT_NO_GIT:+--no-git} \
  ${INPUT_VERBOSE:+--verbose}
