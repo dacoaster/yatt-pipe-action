@@ -22,7 +22,7 @@ else
   RUN_ATTEMPT=$GITHUB_RUN_ATTEMPT
   RUN_ID=$GITHUB_RUN_ID
 
-  ADDITIONAL_OVERRIDE="
+  ADDITIONAL_OVERRIDE=$(echo "
   {
     \"runs\": {
       \"ci\": \"${CI:+"true"}\",
@@ -39,7 +39,7 @@ else
       \"run_id\": \"$RUN_ID\",
       \"run_attempt\": \"$RUN_ATTEMPT\"
     }
-  }"
+  }" | tr -d '\n')
 fi
 if [ "$ADDITIONAL_OVERRIDE" != "$INPUT_OVERRIDE" ]; then
   COMBINED_OVERRIDE=$(jq --indent 0 -s '.[0] * .[1]' <(echo "$ADDITIONAL_OVERRIDE") <(echo "${INPUT_OVERRIDE:-$EMPTY_OVERRIDE}"))
