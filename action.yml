@@ -22,7 +22,7 @@ inputs:
   verbose:
     description: 'Whether or not to print verbose output'
     required: false
-  no_git_cmd:
+  no_git:
     description: 'Whether or not to include git info on submission'
     required: false
     default: false

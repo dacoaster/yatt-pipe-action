@@ -1,6 +1,16 @@
 # GitHub Action for [yatt-pipe](https://github.com/yatt-ai/yatt-pipe)
 
-Please see the [yatt-pipe README](https://github.com/yatt-ai/yatt-pipe) for more information on configuring and using `yatt-pipe`.
+Please see the [yatt-pipe README](https://github.com/yatt-ai/yatt-pipe) for more information on configuring and using `yatt-pipe` in regards to what each of the variables are for.
+
+Supported variables are:
+- credentials
+- ignore
+- override
+- source
+- target
+- data_types
+- verbose
+- no_git
 
 Here is the simplest example of how to configure/use this action: 
 ```
@@ -20,6 +30,3 @@ run-tests:
       RESULTS_PATH: './results.xml'
 
 ```
-
-CTODO - If you are looking to upload test data from a previous job, you'll need to use the [upload artifact](https://github.com/actions/upload-artifact) and [download artifact](https://github.com/actions/download-artifact) actions to persist the test results.  (Alternatively, you could also use `yatt-pipe` directly by installing it in your project and running it immediately after your tests.)
-
