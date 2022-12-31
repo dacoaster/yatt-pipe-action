@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo" Running yatt-pipe: /yatt-pipe/node_modules/yatt-pipe/index.js \
+echo "Running yatt-pipe: /yatt-pipe/node_modules/yatt-pipe/index.js \
  ${INPUT_SOURCE:+--source $INPUT_SOURCE} \
  ${INPUT_TARGET:+--target $INPUT_TARGET} \
  ${INPUT_CREDENTIALS:+--credentials $INPUT_CREDENTIALS} \
