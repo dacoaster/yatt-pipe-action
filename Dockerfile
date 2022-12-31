@@ -1,10 +1,13 @@
 FROM node:16.18-alpine
 
 RUN mkdir /yatt-pipe
-WORKDIR /yatt-pipe
 
 COPY package*.json /yatt-pipe/
 
-RUN npm install
+COPY entrypoint.sh /yatt-pipe/
 
-ENTRYPOINT ["sh", "-c", "node node_modules/yatt-pipe/index.js"]
+RUN chmod +x /yatt-pipe/entrypoint.sh
+
+RUN cd /yatt-pipe && npm install
+
+ENTRYPOINT ["/yatt-pipe/entrypoint.sh"]
