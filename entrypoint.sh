@@ -1,8 +1,11 @@
 #!/bin/sh
 
-printf '%d args:' "$#"
-printf " '%s'" "$@"
-printf '\n'
-env
-
-node /yatt-pipe/node_modules/yatt-pipe/index.js
+node /yatt-pipe/node_modules/yatt-pipe/index.js \
+ ${INPUT_SOURCE:+--source $INPUT_SOURCE} \
+ ${INPUT_TARGET:+--target $INPUT_TARGET} \
+ ${INPUT_CREDENTIALS:+--credentials $INPUT_CREDENTIALS} \
+ ${INPUT_IGNORE:+--ignore $INPUT_IGNORE} \
+ ${INPUT_OVERRIDE:+--overrides $INPUT_OVERRIDE} \
+ ${INPUT_DATA_TYPES:+--data-types $INPUT_DATA_TYPES} \
+ ${INPUT_NO_GIT:+--no-git $INPUT_NO_GIT} \
+ ${INPUT_VERBOSE:+--verbose $INPUT_VERBOSE}

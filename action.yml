@@ -33,13 +33,3 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args: [
-    '--credentials', '${{ inputs.credentials }}',
-    '--ignore', '${{ inputs.ignore }}',
-    '--overrides', '${{ inputs.override }}',
-    '--source', '${{ inputs.source }}',
-    '--target', '${{ inputs.target }}',
-    '--data-types', '${{ inputs.data_types }}',
-    '${{ inputs.verbose_cmd }}',
-    '${{ inputs.no_git_cmd }}'
-  ]
