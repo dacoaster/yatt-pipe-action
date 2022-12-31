@@ -1,6 +1,6 @@
 {
   "name": "yatt-pipe-action",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Please see the [yatt-pipe README](https://github.com/yatt-ai/yatt-pipe) for more information on configuring and using `yatt-pipe`.",
   "main": "index.js",
   "scripts": {
