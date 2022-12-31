@@ -43,6 +43,7 @@ else
 fi
 if [ "$ADDITIONAL_OVERRIDE" != "$INPUT_OVERRIDE" ]; then
   COMBINED_OVERRIDE=$(jq --indent 0 -s '.[0] * .[1]' <(echo "$ADDITIONAL_OVERRIDE") <(echo "${INPUT_OVERRIDE:-$EMPTY_OVERRIDE}"))
+  echo "$COMBINED_OVERRIDE"
   COMBINED_OVERRIDE=$(LC_ALL=C awk -v q="'" '
     BEGIN{
       for (i=1; i<ARGC; i++) {
