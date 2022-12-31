@@ -1,0 +1,45 @@
+name: 'Yatt Pipe'
+description: 'A tool for moving testing/quality data.'
+inputs:
+  credentials:
+    description: 'Path to credentials file for API connections. (See README.)'
+    required: false
+  ignore:
+    description: 'Path to a config file specifying source records to ignore'
+    required: false
+  override:
+    description: 'JSON including configs to include or override'
+    required: false
+  source:
+    description: 'Type of API'
+    required: true
+  target:
+    description: 'Specify API config'
+    required: true
+  data_types:
+    description: 'Specify data type'
+    required: false
+  verbose:
+    description: 'Whether or not to print verbose output'
+    required: false
+    default: false
+  no_git_cmd:
+    description: 'Whether or not to include git info on submission'
+    required: false
+    default: false
+outputs:
+  status:
+    description: 'status'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args: [
+    '--credentials', '${{ inputs.credentials }}',
+    '--ignore', '${{ inputs.ignore }}',
+    '--overrides', '${{ inputs.override }}',
+    '--source', '${{ inputs.source }}',
+    '--target', '${{ inputs.target }}',
+    '--data-types', '${{ inputs.data_types }}',
+    '${{ inputs.verbose_cmd }}',
+    '${{ inputs.no_git_cmd }}'
+  ]

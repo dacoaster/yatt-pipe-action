@@ -1,0 +1,22 @@
+{
+  "name": "yatt-pipe-action",
+  "version": "1.0.0",
+  "description": "Please see the [yatt-pipe README](https://github.com/yatt-ai/yatt-pipe) for more information on configuring and using `yatt-pipe`.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dacoaster/yatt-pipe-action.git"
+  },
+  "author": "YATT, Inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dacoaster/yatt-pipe-action/issues"
+  },
+  "homepage": "https://github.com/dacoaster/yatt-pipe-action#readme",
+  "dependencies": {
+    "yatt-pipe": "^0.2.0"
+  }
+}
