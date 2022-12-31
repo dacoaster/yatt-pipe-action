@@ -10,7 +10,7 @@ then
   ADDITIONAL_OVERRIDE=$EMPTY_OVERRIDE
 else
   RUNNER_SERVICE=${GITHUB_ACTIONS:+"github"}
-  RUNNER_NAME="$RUNNER_NAME"
+  RUNNER_NAME=$RUNNER_NAME
   RUNNER_OS=$RUNNER_OS
   RUNNER_ARCH=$RUNNER_ARCH
   TRIGGER=$GITHUB_EVENT_NAME
@@ -21,14 +21,12 @@ else
   REPO=${GITHUB_REPOSITORY:+"github:$GITHUB_REPOSITORY"}
   RUN_ATTEMPT=$GITHUB_RUN_ATTEMPT
   RUN_ID=$GITHUB_RUN_ID
-  echo "RN: [$RUNNER_NAME]"
 
   ADDITIONAL_OVERRIDE=$(echo "
   {
     \"runs\": {
       \"ci\": {
         \"runner_service\": \"$RUNNER_SERVICE\",
-        \"runner_name\": \"$RUNNER_NAME\",
         \"runner_os\": \"$RUNNER_OS\",
         \"runner_arch\": \"$RUNNER_ARCH\",
         \"trigger\": \"$TRIGGER\",
