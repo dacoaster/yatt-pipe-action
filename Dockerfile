@@ -10,4 +10,6 @@ RUN chmod +x /yatt-pipe/entrypoint.sh
 
 RUN cd /yatt-pipe && npm install
 
+RUN apk add jq
+
 ENTRYPOINT ["/yatt-pipe/entrypoint.sh"]

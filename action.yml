@@ -25,7 +25,9 @@ inputs:
   no_git:
     description: 'Whether or not to include git info on submission'
     required: false
-    default: false
+  no_ci_data:
+    description: 'Whether or not to include CI info on submission'
+    required: false
 outputs:
   status:
     description: 'status'
